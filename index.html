@@ -714,6 +714,73 @@
       margin-top: 0.25rem;
     }
 
+    /* ── Scroll hint ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--muted);
+      font-size: 1.3rem;
+      z-index: 1;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+      50%       { opacity: 1;   transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* ── Hamburger ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 57px; left: 0; right: 0;
+      background: rgba(8,8,15,0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      z-index: 199;
+      padding: 0.5rem 1.25rem 1.25rem;
+      flex-direction: column;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.9rem 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; color: #ec4899; }
+
+    /* ── Skills grid orphan fix ── */
+    .exp-grid > .exp-card.lone { grid-column: 2; }
+    @media (max-width: 900px) {
+      .exp-grid > .exp-card.lone { grid-column: auto; }
+    }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -724,6 +791,7 @@
     @media (max-width: 640px) {
       nav { padding: 0.9rem 1.25rem; }
       .nav-links { display: none; }
+      .hamburger { display: flex; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .exp-grid   { grid-template-columns: 1fr; }
       .proj-grid  { grid-template-columns: repeat(2, 1fr); }
@@ -746,7 +814,19 @@
     <li><a href="#education">Education</a></li>
     <li><a href="#contact" class="nav-cta">강의 문의</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#career" onclick="closeMobileMenu()">Experience</a>
+  <a href="#projects" onclick="closeMobileMenu()">Projects</a>
+  <a href="#vibe-coding" onclick="closeMobileMenu()">Vibe Coding</a>
+  <a href="#education" onclick="closeMobileMenu()">Education</a>
+  <a href="#contact" onclick="closeMobileMenu()">강의 문의</a>
+</div>
 
 <!-- Hero -->
 <section class="hero">
@@ -767,6 +847,7 @@
       <a href="#contact" class="btn-s">강의 &amp; 연락</a>
     </div>
   </div>
+  <div class="scroll-hint">↓</div>
 </section>
 
 <!-- About -->
@@ -795,8 +876,8 @@
         <div class="stat-lbl">VFX &middot; 미디어 업계 현장 경력</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">OTT</div>
-        <div class="stat-lbl">Netflix &amp; Disney+ 오리지널 프로젝트 리더십</div>
+        <div class="stat-num">2개</div>
+        <div class="stat-lbl">Netflix &amp; Disney+ 오리지널 플랫폼 리더십</div>
       </div>
     </div>
 
@@ -846,7 +927,7 @@
         <h3>인터렉티브콘텐츠 &amp; 미디어아트</h3>
         <p>실시간 인터랙션 기반 몰입형 콘텐츠 기획 및 제작. 미디어아트 설치부터 XR 인터렉티브 경험까지 크리에이티브 테크놀로지를 접목한 콘텐츠 프로덕션.</p>
       </div>
-      <div class="exp-card">
+      <div class="exp-card lone">
         <div class="exp-icon" style="background: linear-gradient(135deg,rgba(168,85,247,.18),rgba(168,85,247,.04));">&#127970;</div>
         <h3>글로벌 입찰 경험 — US Sphere</h3>
         <p>라스베이거스 Sphere(구형 몰입형 공연장) 프로젝트 입찰 참여 경험 보유. 초대형 글로벌 미디어 인프라 대상 콘텐츠 및 기술 전략 제안.</p>
@@ -1400,6 +1481,18 @@
 </footer>
 
 <script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
   // Scroll fade-in
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
