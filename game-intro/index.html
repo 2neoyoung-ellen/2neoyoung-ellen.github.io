@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InYoung Choi — Interactive Intro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- CRT scanline overlay -->
+  <div class="crt-overlay"></div>
+
+  <!-- Full-screen background -->
+  <div class="scene-bg" id="sceneBg"></div>
+
+  <!-- Bottom gradient for readability -->
+  <div class="scene-fade"></div>
+
+  <!-- Top controls -->
+  <div class="top-bar">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="kr">KR</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="skip-btn" id="skipBtn">건너뛰기 ▶</button>
+  </div>
+
+  <!-- Choice panel: centered above dialogue -->
+  <div class="choice-panel hidden" id="choiceMenu">
+    <div class="choice-label">
+      <span class="kr-text">선택하세요</span>
+      <span class="en-text">Choose your path</span>
+    </div>
+    <div class="choice-list" id="choiceList"></div>
+  </div>
+
+  <!-- Dialogue box: fixed at bottom -->
+  <div class="dialogue-box" id="dialogueBox">
+    <div class="dialogue-header">
+      <span class="dialogue-name" id="dialogueName">최인영 / InYoung</span>
+      <span class="tap-hint" id="tapHint">
+        <span class="kr-text">탭하여 건너뛰기</span>
+        <span class="en-text">Tap to skip</span>
+      </span>
+    </div>
+    <div class="dialogue-body">
+      <p class="dialogue-text" id="dialogueText"></p>
+    </div>
+    <div class="dialogue-footer">
+      <span class="dialogue-cursor hidden" id="dialogueCursor">
+        <span class="kr-text">▼ 계속하려면 클릭</span>
+        <span class="en-text">▼ Click to continue</span>
+      </span>
+    </div>
+  </div>
+
+  <script src="engine.js"></script>
+</body>
+</html>

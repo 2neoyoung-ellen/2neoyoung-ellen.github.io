@@ -1,0 +1,77 @@
+{
+  "scenes": {
+    "intro": {
+      "character": "neutral",
+      "lines": [
+        { "kr": "...", "en": "..." },
+        { "kr": "어서오세요. 이곳에 오신 것을 환영합니다.", "en": "Welcome. I'm glad you're here." },
+        { "kr": "저는 최인영입니다. AI 미디어 전략가이자 프로듀서, 그리고 강사입니다.", "en": "I'm InYoung Choi — AI media strategist, producer, and instructor." }
+      ],
+      "choices": [
+        { "kr": "그녀를 알아가고 싶어요", "en": "Get to know her", "next": "about" },
+        { "kr": "작업물이 보고 싶어요", "en": "See her work", "next": "portfolio" },
+        { "kr": "연락하고 싶어요", "en": "Get in touch", "next": "contact" }
+      ]
+    },
+    "about": {
+      "character": "smile",
+      "lines": [
+        { "kr": "좋아요. 어디서부터 시작할까요?", "en": "Great. Where shall we begin?" }
+      ],
+      "choices": [
+        { "kr": "어떤 사람인가요?", "en": "Who is she?", "next": "who" },
+        { "kr": "어떤 일을 하나요?", "en": "What does she do?", "next": "work" },
+        { "kr": "강의를 의뢰하고 싶어요", "en": "I'd like to work with her", "next": "hire" }
+      ]
+    },
+    "who": {
+      "character": "neutral",
+      "lines": [
+        { "kr": "서울에서 활동하는 AI 미디어 전략가입니다.", "en": "Based in Seoul — AI media strategist by day." },
+        { "kr": "방송, OTT, AI의 교차점에서 콘텐츠와 기술을 연결하는 일을 해왔어요.", "en": "I connect content and technology at the intersection of broadcast, OTT, and AI." },
+        { "kr": "사람들이 기술을 더 쉽게 이해하도록 돕는 것을 좋아하죠.", "en": "I love making complex technology feel human." }
+      ],
+      "choices": [
+        { "kr": "작업물을 보고 싶어요", "en": "See her work", "next": "portfolio" },
+        { "kr": "어떤 일을 하는지 더 알고 싶어요", "en": "Tell me more about her work", "next": "work" }
+      ]
+    },
+    "work": {
+      "character": "thinking",
+      "lines": [
+        { "kr": "AI 전략 기획, 콘텐츠 프로덕션, 그리고 Claude Code 같은 AI 도구 강의를 합니다.", "en": "AI strategy, content production, and AI tool workshops — especially Claude Code." },
+        { "kr": "KBS, Netflix, SBS 등 주요 미디어사와 작업한 경험이 있어요.", "en": "I've worked with KBS, Netflix, SBS, and other major media companies." }
+      ],
+      "choices": [
+        { "kr": "작업물 보기", "en": "See portfolio", "next": "portfolio" },
+        { "kr": "강의 의뢰하기", "en": "Hire her", "next": "hire" }
+      ]
+    },
+    "hire": {
+      "character": "smile",
+      "lines": [
+        { "kr": "좋아요. 메시지를 남겨주시면 확인 후 연락드리겠습니다.", "en": "Sounds good. Leave a message and I'll get back to you." },
+        { "kr": "연락처 정보로 안내해드릴게요.", "en": "Let me take you to my contact info." }
+      ],
+      "choices": [
+        { "kr": "연락하기", "en": "Contact", "next": "contact" }
+      ]
+    },
+    "portfolio": {
+      "character": "smile",
+      "lines": [
+        { "kr": "작업물을 보여드릴게요. 잠시 후 포트폴리오로 이동합니다.", "en": "Let me show you my work. Taking you to the portfolio now." }
+      ],
+      "action": "redirect",
+      "url": "https://2neoyoung-ellen.github.io#projects"
+    },
+    "contact": {
+      "character": "smile",
+      "lines": [
+        { "kr": "언제든 연락주세요. 포트폴리오 페이지로 안내해드릴게요.", "en": "Feel free to reach out anytime. Taking you there now." }
+      ],
+      "action": "redirect",
+      "url": "https://2neoyoung-ellen.github.io#contact"
+    }
+  }
+}
