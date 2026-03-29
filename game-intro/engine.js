@@ -125,6 +125,15 @@ const Engine = (() => {
     tapHint.classList.add('hidden');
   }
 
+  // ── Screen flash ───────────────────────────
+  function flashScreen() {
+    const el = document.getElementById('flashOverlay');
+    if (!el) return;
+    el.classList.remove('flash');
+    void el.offsetWidth;
+    el.classList.add('flash');
+  }
+
   // ── Scene navigation ───────────────────────
   function goToScene(sceneId) {
     const scene = script.scenes[sceneId];
@@ -133,6 +142,11 @@ const Engine = (() => {
     currentScene = sceneId;
     choiceMenu.classList.add('hidden');
     dialogueCursor.classList.add('hidden');
+
+    // Card entrance animation
+    dialogueBox.classList.remove('scene-enter');
+    void dialogueBox.offsetWidth;
+    dialogueBox.classList.add('scene-enter');
 
     // Update background
     setCharacter(scene.character || 'neutral');
@@ -178,6 +192,7 @@ const Engine = (() => {
       `;
       btn.addEventListener('click', () => {
         playSelect();
+        flashScreen();
         goToScene(choice.next);
       });
       btn.dataset.index = idx;

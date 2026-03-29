@@ -68,10 +68,24 @@
     "contact": {
       "character": "smile",
       "lines": [
-        { "kr": "언제든 연락주세요. 포트폴리오 페이지로 안내해드릴게요.", "en": "Feel free to reach out anytime. Taking you there now." }
+        { "kr": "언제든 연락주세요. 어떤 방법이 편하신가요?", "en": "Always happy to connect. How would you like to reach me?" }
       ],
+      "choices": [
+        { "kr": "LinkedIn으로 연결하기", "en": "Connect on LinkedIn", "next": "go_linkedin" },
+        { "kr": "이메일 보내기", "en": "Send an email", "next": "go_email" }
+      ]
+    },
+    "go_linkedin": {
+      "character": "smile",
+      "lines": [],
       "action": "redirect",
-      "url": "https://2neoyoung-ellen.github.io#contact"
+      "url": "https://www.linkedin.com/in/inyoungellenchoi/"
+    },
+    "go_email": {
+      "character": "smile",
+      "lines": [],
+      "action": "redirect",
+      "url": "mailto:2neoyoung@gmail.com"
     }
   }
 }

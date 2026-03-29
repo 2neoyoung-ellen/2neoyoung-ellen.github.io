@@ -799,9 +799,38 @@
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .edu-card { flex-direction: column; }
     }
+
+    /* ── Back Button ── */
+    .back-btn {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 150;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      color: rgba(241,245,249,0.55);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .back-btn:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.2);
+    }
   </style>
 </head>
 <body>
+
+<!-- Back Button -->
+<button class="back-btn" onclick="history.back()">← 돌아가기</button>
 
 <!-- Nav -->
 <nav>
@@ -839,7 +868,8 @@
     </h1>
     <p class="hero-sub">
       AI + VFX 전략으로 미디어 산업의 새로운 표준을 설계합니다.<br>
-      Netflix &middot; Disney+ &middot; 글로벌 프로덕션 8년+ 경험.
+      Netflix &middot; Disney+ &middot; 글로벌 프로덕션 8년+ 경험.<br>
+      드라마·영화·예능·다큐 전 장르 포스트 프로덕션 총괄 &middot; AI 대학 특강 &middot; VFX 매니지먼트 강의.
     </p>
     <div class="hero-actions">
       <a href="#career" class="btn-p">경력 보기</a>
@@ -910,12 +940,12 @@
       <div class="exp-card">
         <div class="exp-icon" style="background: linear-gradient(135deg,rgba(239,68,68,.18),rgba(239,68,68,.04));">&#127891;</div>
         <h3>Industry Education</h3>
-        <p>AI &middot; VFX 분야 전문 교육자로서 온&middot;오프라인 플랫폼을 통해 실무 노하우를 전파하고 업계 기술 성장을 견인.</p>
+        <p>AI 대학 특강 및 VFX 매니지먼트 콜로서 강의를 포함해 온·오프라인 플랫폼에서 실무 노하우를 전파. AI·VFX 분야 전문 교육자로서 업계 기술 성장을 견인.</p>
       </div>
       <div class="exp-card">
         <div class="exp-icon" style="background: linear-gradient(135deg,rgba(16,185,129,.18),rgba(16,185,129,.04));">&#127916;</div>
         <h3>Post-Production 전체 운영</h3>
-        <p>프리프로덕션부터 최종 납품까지 Post-Production 전 과정을 총괄 운영. 파이프라인 설계, 인력 조율, 품질 관리, 납기 관리까지 엔드투엔드 책임.</p>
+        <p>드라마·영화·예능·다큐멘터리 등 모든 장르의 포스트 프로덕션을 총괄. 프리프로덕션부터 최종 납품까지 파이프라인 설계, 인력 조율, 품질 관리, 납기 관리를 엔드투엔드로 책임.</p>
       </div>
       <div class="exp-card">
         <div class="exp-icon" style="background: linear-gradient(135deg,rgba(251,191,36,.18),rgba(251,191,36,.04));">&#128176;</div>
